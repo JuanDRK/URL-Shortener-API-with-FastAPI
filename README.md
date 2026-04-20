@@ -8,6 +8,7 @@ Una API RESTful para acortar URLs, construida con FastAPI y SQLAlchemy. Permite 
 - **SQLAlchemy**: ORM para base de datos.
 - **SQLite**: Base de datos ligera.
 - **Pydantic**: Validación de datos.
+- **Pytest**: Pruebas automatizadas.
 
 ## Estructura del Proyecto
 
@@ -27,6 +28,8 @@ url-shortener-api/
 ```
 
 ## Instalación y Ejecución
+
+Recomendado: Python 3.10+.
 
 1. Clona el repo:
    ```bash
@@ -52,12 +55,21 @@ url-shortener-api/
 
 5. Abre en navegador: `http://127.0.0.1:8000/docs` (Swagger UI).
 
+6. Ejecuta pruebas:
+   ```bash
+   pytest
+   ```
+
 ## Endpoints
+
+### Health check
+- **GET** `/`
+- Respuesta: `{"status": "ok", "service": "url-shortener-api"}`
 
 ### Crear URL corta
 - **POST** `/api/shorten`
 - Body: `{"original_url": "https://example.com"}`
-- Respuesta: `{"short_url": "http://localhost:8000/api/XyZaBc"}`
+- Respuesta: `{"short_url": "http://127.0.0.1:8000/api/XyZaBc"}`
 
 ### Redirigir
 - **GET** `/api/{code}`
@@ -82,13 +94,15 @@ url-shortener-api/
 ### Código personalizado
 - **POST** `/api/custom`
 - Body: `{"original_url": "https://example.com", "custom_code": "mycustom"}`
-- Respuesta: `{"short_url": "http://localhost:8000/api/mycustom"}`
+- Respuesta: `{"short_url": "http://127.0.0.1:8000/api/mycustom"}`
+- Reglas `custom_code`: 3-32 caracteres, solo `a-z`, `A-Z`, `0-9`, `_`, `-`.
 
 ## Desarrollo
 
 - La DB se crea automáticamente al iniciar.
-- Usa `.env` para configuración (opcional).
-- Pruebas con Postman o curl.
+- Usa `.env` para configuración (opcional), ejemplo:
+  - `DATABASE_URL=sqlite:///./urls.db`
+- Pruebas automáticas disponibles con `pytest`.
 
 ## Licencia
 

@@ -2,3 +2,4 @@
 __pycache__/
 *.pyc
 urls.db
+test_urls.db

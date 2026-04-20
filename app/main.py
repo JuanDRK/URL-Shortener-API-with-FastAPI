@@ -12,4 +12,10 @@ app = FastAPI(
     version="1.0.0"
 )
 
+
+@app.get("/", tags=["Health"])
+def health_check():
+    return {"status": "ok", "service": "url-shortener-api"}
+
+
 app.include_router(url.router, prefix="/api", tags=["URLs"])
