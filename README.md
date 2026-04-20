@@ -48,7 +48,10 @@ Recomendado: Python 3.10+.
 2. Crea entorno virtual:
    ```bash
    python -m venv .venv
-   source .venv/bin/activate  # Windows: .venv\Scripts\activate
+   # Linux/macOS
+   source .venv/bin/activate
+   # Windows PowerShell
+   .\.venv\Scripts\Activate.ps1
    ```
 
 3. Instala dependencias:
@@ -65,7 +68,7 @@ Recomendado: Python 3.10+.
 
 6. Ejecuta pruebas:
    ```bash
-   pytest
+   python -m pytest
    ```
 
 ## Endpoints
