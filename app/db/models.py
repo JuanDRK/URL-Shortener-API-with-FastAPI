@@ -1,5 +1,7 @@
-from sqlalchemy import Column, Integer, String, DateTime, func
-from app.database import Base
+from sqlalchemy import Column, DateTime, Integer, String, func
+
+from app.db.database import Base
+
 
 class URL(Base):
     __tablename__ = "urls"

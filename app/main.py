@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
-from app.database import engine
-from app.models import Base
-from app.routers import url
+from app.api.v1.routers import url
+from app.db.database import engine
+from app.db.models import Base
 
 Base.metadata.create_all(bind=engine)
 

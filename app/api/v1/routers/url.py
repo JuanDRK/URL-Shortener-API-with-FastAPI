@@ -1,15 +1,16 @@
-from fastapi import APIRouter, Depends, HTTPException, Request, status
-from fastapi.responses import RedirectResponse
-from sqlalchemy.orm import Session
-from sqlalchemy import desc
 import random
 import string
 from datetime import datetime
 from typing import List
 
-from app.database import get_db
-from app.models import URL
-from app.schemas import CustomURLCreate, URLCreate, URLResponse, URLStats
+from fastapi import APIRouter, Depends, HTTPException, Request, status
+from fastapi.responses import RedirectResponse
+from sqlalchemy import desc
+from sqlalchemy.orm import Session
+
+from app.db.database import get_db
+from app.db.models import URL
+from app.schemas.url import CustomURLCreate, URLCreate, URLResponse, URLStats
 
 router = APIRouter()
 MAX_GENERATION_ATTEMPTS = 10

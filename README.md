@@ -16,12 +16,20 @@ Una API RESTful para acortar URLs, construida con FastAPI y SQLAlchemy. Permite 
 url-shortener-api/
 ├── app/
 │   ├── __init__.py
-│   ├── main.py          # Punto de entrada
-│   ├── database.py      # Configuración DB
-│   ├── models.py        # Modelos SQLAlchemy
-│   ├── schemas.py       # Esquemas Pydantic
-│   └── routers/
-│       └── url.py       # Rutas de la API
+│   ├── main.py                 # Punto de entrada
+│   ├── core/
+│   │   └── config.py           # Variables de entorno y settings
+│   ├── db/
+│   │   ├── database.py         # Configuración de conexión y sesión
+│   │   └── models.py           # Modelos SQLAlchemy
+│   ├── schemas/
+│   │   └── url.py              # Esquemas Pydantic
+│   └── api/
+│       └── v1/
+│           └── routers/
+│               └── url.py      # Endpoints de URL Shortener
+├── tests/
+│   └── test_url_api.py
 ├── requirements.txt
 ├── README.md
 └── urls.db              # Base de datos (generada)
